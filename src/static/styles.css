@@ -1,0 +1,12 @@
+body {
+  margin-top: 50px;
+  margin-left: 75px;
+}
+
+input[type="text"] {
+  width: 350px;
+}
+
+#options {
+  padding: 0;
+}
