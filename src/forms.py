@@ -1,15 +1,14 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
-from wtforms.fields.core import BooleanField
-from wtforms.validators import DataRequired
+from wtforms import BooleanField, StringField, SubmitField
+from wtforms.validators import DataRequired, Length
 
 
-class CreatePollForm(FlaskForm):
-    title = StringField("title", validators=[DataRequired()])
-    # options = ...
-    allow_multiple_poll_answers = BooleanField("Allow multiple poll answers")
-    create_poll = SubmitField("Create poll")
+class PollForm(FlaskForm):
+    title = StringField(
+        "title", validators=[DataRequired(), Length(min=1, max=400)])
+    # allow_multiple_poll_answers = BooleanField("Allow multiple poll answers")
+    create_poll = SubmitField("Create Poll")
 
 
-class VotePollForm(FlaskForm):
+class VoteForm(FlaskForm):
     ...
