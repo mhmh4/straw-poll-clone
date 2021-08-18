@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+  <form method="POST" action="">
+    <h1>Straw Poll</h1>
+    {{ form.hidden_tag() }}
+    {{ form.title(placeholder="Type your question here") }}
+    <div id="options">
+      <div>{{ form.option1(placeholder="Enter poll option") }}</div>
+      <div>{{ form.option2(placeholder="Enter poll option") }}</div>
+      <div>{{ form.option3(placeholder="Enter poll option") }}</div>
+      <div>{{ form.option4(placeholder="Enter poll option") }}</div>
+      <div>{{ form.option5(placeholder="Enter poll option") }}</div>
+    </div>
+    <input type="checkbox" name="allow_multiple">
+    <label for="allow_multiple">Allow multiple poll answers</label>
+    {{ form.create_poll() }}
+  </form>
+{% endblock %}

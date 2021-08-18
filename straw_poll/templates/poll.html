@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2 id="title">{{ poll.title }}</h2>
+  <form method="POST" action="">
+    <div id="options">
+      <div><input type="checkbox" name="option1"><label for="option1">{{ poll.option1 }}</label></div>
+      <div><input type="checkbox" name="option2"><label for="option2">{{ poll.option2 }}</label></div>
+      <div><input type="checkbox" name="option3"><label for="option3">{{ poll.option3 }}</label></div>
+      <div><input type="checkbox" name="option4"><label for="option4">{{ poll.option4 }}</label></div>
+      <div><input type="checkbox" name="option5"><label for="option5">{{ poll.option5 }}</label></div>
+    </div>
+      {{ form.vote() }}
+  </form>
+  <button>
+    <a class="btn" href="{{ url_for('results', poll_id=poll.id) }}">Results</a>
+  </button>
+  <button id="share-btn">Share</button>
+{% endblock %}

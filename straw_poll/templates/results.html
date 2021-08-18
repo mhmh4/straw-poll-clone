@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2 id="title">{{ poll.title }}</h2>
+  <div id="options">
+    <div>
+      <p>{{ poll.option1 }}</p>
+      <p>{{ poll.option1_results }}</p>
+    </div>
+    <div>
+      <p>{{ poll.option2 }}</p>
+      <p>{{ poll.option2_results }}</p>
+    </div>
+    <div>
+      <p>{{ poll.option3 }}</p>
+      <p>{{ poll.option3_results }}</p>
+    </div>
+    <div>
+      <p>{{ poll.option4 }}</p>
+      <p>{{ poll.option5_results }}</p>
+    </div>
+    <div>
+      <p>{{ poll.option5 }}</p>
+      <p>{{ poll.option5_results }}</p>
+    </div>
+  </div>
+  <div>
+    <button>
+      <a class="btn" href="{{ url_for('poll', poll_id=poll.id) }}">Vote</a>
+    </button>
+    <button id="share-btn">Share</button>
+  </div>
+{% endblock %}
