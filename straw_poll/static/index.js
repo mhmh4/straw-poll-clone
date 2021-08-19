@@ -11,6 +11,6 @@
 const shareBtn = document.getElementById("share-btn");
 
 shareBtn.addEventListener("click", () => {
-    navigator.clipboard.writeText(window.location.href);
-    alert("The url has been copied to your clipboard.")
+  navigator.clipboard.writeText(window.location.href);
+  alert("The url has been copied to your clipboard.")
 });

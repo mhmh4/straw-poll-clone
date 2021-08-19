@@ -2,26 +2,51 @@
 {% block content %}
   <h2 id="title">{{ poll.title }}</h2>
   <div id="options">
+    {% if poll.option1 %}
     <div>
       <p>{{ poll.option1 }}</p>
-      <p>{{ poll.option1_results }}</p>
+      <p>{{ poll.option1_results }} votes</p>
+      <p>{{ percentages[0] }}</p>
     </div>
+    {% endif %}
+    <!--  -->
+    {% if poll.option2 %}
     <div>
       <p>{{ poll.option2 }}</p>
-      <p>{{ poll.option2_results }}</p>
+      <p>{{ poll.option2_results }} votes</p>
+      <p>{{ percentages[1] }}</p>
     </div>
+    {% endif %}
+  <!--  -->
+    {% if poll.option3 %}
     <div>
       <p>{{ poll.option3 }}</p>
-      <p>{{ poll.option3_results }}</p>
+      <p>{{ poll.option3_results }} votes</p>
+      <p>{{ percentages[2] }}</p>
     </div>
-    <div>
+    {% endif %}
+  <!--  -->
+    {% if poll.option4 %}
+    <div>      
       <p>{{ poll.option4 }}</p>
-      <p>{{ poll.option5_results }}</p>
+      <p>{{ poll.option4_results }} votes</p>
+      <p>{{ percentages[3] }}</p>
     </div>
+    {% endif %}
+  <!--  -->
+    {% if poll.option5 %}
     <div>
       <p>{{ poll.option5 }}</p>
-      <p>{{ poll.option5_results }}</p>
+      <p>{{ poll.option5_results }} votes</p>
+      <p>{{ percentages[4] }}</p>
     </div>
+    {% endif %}
+  <!--  -->
+  </div>
+  <div>
+    <h4>
+      {{ poll.option1_results + poll.option2_results + poll.option3_results + poll.option4_results + poll.option5_results}} votes 
+    </h4>
   </div>
   <div>
     <button>
