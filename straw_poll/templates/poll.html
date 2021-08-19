@@ -8,46 +8,48 @@
     <div id="options">
       {% if poll.option1 %}
       <div>
-        <input id="1" type="checkbox" name="option1">
+        <input type="checkbox" name="option1">
         <label for="option1">{{ poll.option1 }}</label>
       </div>
       {% endif %}
       <!--  -->
       {% if poll.option2 %}
       <div>
-        <input id="1" type="checkbox" name="option2">
+        <input type="checkbox" name="option2">
         <label for="option2">{{ poll.option2 }}</label>
       </div>
       {% endif %}
       <!--  -->
       {% if poll.option3 %}
       <div>
-        <input id="1" type="checkbox" name="option3">
+        <input type="checkbox" name="option3">
         <label for="option3">{{ poll.option3 }}</label>
       </div>
       {% endif %}
       <!--  -->
       {% if poll.option4 %}
       <div>
-        <input id="1" type="checkbox" name="option4">
+        <input type="checkbox" name="option4">
         <label for="option4">{{ poll.option4 }}</label>
       </div>
       {% endif %}
       <!--  -->
       {% if poll.option5 %}
       <div>
-        <input id="1" type="checkbox" name="option5">
+        <input type="checkbox" name="option5">
         <label for="option5">{{ poll.option5 }}</label>
       </div>
       {% endif %}
       <!--  -->
     </div>
-      {{ form.vote() }}
+    <div>{{ form.vote() }}</div>
   </form>
-  <button>
-    <a class="btn" href="{{ url_for('results', poll_id=poll.id) }}">Results</a>
-  </button>
-  <button id="share-btn">Share</button>
+  <div class="right" style="margin-top: -22px;">
+    <button>
+      <a class="btn" href="{{ url_for('results', poll_id=poll.id) }}">Results</a>
+    </button>
+    <button id="share-btn">Share</button>
+  </div>
   <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
   <script>
     const hasSelectAllThatApply = document.getElementById('select-all-that-apply');

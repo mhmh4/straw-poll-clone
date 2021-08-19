@@ -1,6 +1,7 @@
 body {
   margin-top: 50px;
   margin-left: 75px;
+  max-width: 350px;
 }
 
 input[type="text"] {
@@ -22,4 +23,12 @@ input[type="text"] {
 
 #allow-multiple-btn {
   margin-bottom: 20px;
+}
+
+.right {
+  float: right;
+}
+
+#share-btn {
+  cursor: pointer;
 }
