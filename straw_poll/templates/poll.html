@@ -2,28 +2,43 @@
 {% block content %}
   <h2 id="title">{{ poll.title }}</h2>
   {% if poll.allows_multiple_poll_answers %}
-    <p id="select-all-msg">Select all that apply</p>
+    <p id="select-all-that-apply">Select all that apply</p>
   {% endif %}
   <form method="POST" action="">
     <div id="options">
       {% if poll.option1 %}
-      <div><input id="1" type="checkbox" name="option1" onclick="selectOnlyThis(this.id)"><label for="option1">{{ poll.option1 }}</label></div>
+      <div>
+        <input id="1" type="checkbox" name="option1">
+        <label for="option1">{{ poll.option1 }}</label>
+      </div>
       {% endif %}
       <!--  -->
       {% if poll.option2 %}
-      <div><input id="2" type="checkbox" name="option2" onclick="selectOnlyThis(this.id)"><label for="option2">{{ poll.option2 }}</label></div>
+      <div>
+        <input id="1" type="checkbox" name="option2">
+        <label for="option2">{{ poll.option2 }}</label>
+      </div>
       {% endif %}
       <!--  -->
       {% if poll.option3 %}
-      <div><input id="3" type="checkbox" name="option3" onclick="selectOnlyThis(this.id)"><label for="option3">{{ poll.option3 }}</label></div>
+      <div>
+        <input id="1" type="checkbox" name="option3">
+        <label for="option3">{{ poll.option3 }}</label>
+      </div>
       {% endif %}
       <!--  -->
       {% if poll.option4 %}
-      <div><input id="4" type="checkbox" name="option4" onclick="selectOnlyThis(this.id)"><label for="option4">{{ poll.option4 }}</label></div>
+      <div>
+        <input id="1" type="checkbox" name="option4">
+        <label for="option4">{{ poll.option4 }}</label>
+      </div>
       {% endif %}
       <!--  -->
       {% if poll.option5 %}
-      <div><input id="5" type="checkbox" name="option5" onclick="selectOnlyThis(this.id)"><label for="option5">{{ poll.option5 }}</label></div>
+      <div>
+        <input id="1" type="checkbox" name="option5">
+        <label for="option5">{{ poll.option5 }}</label>
+      </div>
       {% endif %}
       <!--  -->
     </div>
@@ -33,15 +48,17 @@
     <a class="btn" href="{{ url_for('results', poll_id=poll.id) }}">Results</a>
   </button>
   <button id="share-btn">Share</button>
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
   <script>
-    const foo = document.getElementById('select-all-msg');
-    if (!foo) {  
-      function selectOnlyThis(id) {
-        for (let i = 1; i <= 5; i++) {
-          document.getElementById(`${i}`).checked = false;
-        }
-        document.getElementById(id).checked = true;
+    $("input:checkbox").on('click', function() {
+      var $box = $(this);
+      if ($box.is(":checked")) {
+        var group = "input:checkbox";
+        $(group).prop("checked", false);
+        $box.prop("checked", true);
+      } else {
+        $box.prop("checked", false);
       }
-    }
+    });
   </script>
 {% endblock %}
