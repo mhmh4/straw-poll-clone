@@ -1,4 +1,4 @@
-from hello import app
+from straw_poll import app
 
 
 if __name__ == "__main__":

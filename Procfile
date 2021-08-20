@@ -1,1 +1,1 @@
-web: gunicorn hello:app
+web: gunicorn straw_poll:wsgi
