@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2 id="title">{{ poll.title }}</h2>
+  <div id="options">
+    {% if poll.option1 %}
+    <div>
+      <p>{{ poll.option1 }}<span class="right">{{ poll.option1_results }} votes ‒ {{ percentages[0] }}</span></p>
+    </div>
+    {% endif %}
+    <!--  -->
+    {% if poll.option2 %}
+    <div>
+      <p>{{ poll.option2 }}<span class="right">{{ poll.option2_results }} votes ‒ {{ percentages[1] }}</span></p>
+    </div>
+    {% endif %}
+    <!--  -->
+    {% if poll.option3 %}
+    <div>
+      <p>{{ poll.option3 }}<span class="right">{{ poll.option3_results }} votes ‒ {{ percentages[2] }}</span></p>
+    </div>
+    {% endif %}
+    <!--  -->
+    {% if poll.option4 %}
+    <div>
+      <p>{{ poll.option4 }}<span class="right">{{ poll.option4_results }} votes ‒ {{ percentages[3] }}</span></p>
+    </div>
+    {% endif %}
+    <!--  -->
+    {% if poll.option5 %}
+    <div>
+      <p>{{ poll.option5 }}<span class="right">{{ poll.option5_results }} votes ‒ {{ percentages[4] }}</span></p>
+    </div>
+    {% endif %}
+    <!--  -->
+  </div>
+  <h4 style="margin-top: 30px;">
+    {{ poll.option1_results + poll.option2_results + poll.option3_results + poll.option4_results + poll.option5_results}} votes
+    <span>
+      <div class="right">
+        <button><a class="btn" href="{{ url_for('poll', poll_id=poll.id) }}">Vote</a></button>
+        <button id="share-btn">Share</button>
+      </div>
+    </span>
+  </h4>
+{% endblock %}
