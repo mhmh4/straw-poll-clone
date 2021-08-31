@@ -4,7 +4,9 @@
 
 [Straw Poll](https://strawpoll.me) is a website that's made for people to easily create and share [straw polls](https://en.wikipedia.org/wiki/Straw_poll). This project is a very minimal clone of that website as it only implements the logic of creating, reading, and updating polls, generating results, and being able to share polls to others via sharing links. I've deployed the application to Heroku, and you can visit it at https://straw-poll-clone.herokuapp.com.
 
-As I've never made my own actual web application before, this is my first own (I'd say quasi-full-stack since I'm not using a frontend framework) web development project. In the backend, I am using Python, Flask, and an SQLite database to store the polls. And in the frontend, I am only using HTML and CSS along with a few lines of JavaScript.
+As I've never made my own actual web application before, this is my first (I'd say quasi-full-stack since I'm not using a frontend framework) web development project. In the backend, I am using Python, Flask, and an SQLite database to store the polls. And in the frontend, I am only using HTML and CSS along with a few lines of JavaScript.
+
+## Example
 
 <div align="center">
   <img width="80%" src="assets/home.png">
@@ -58,4 +60,4 @@ pip install -r requirements.txt
 py app.py
 ```
 
-### Open a web browser and visit the following URL: `http://127.0.0.1:5000/`. This will take you to the home page where you can start using the web application on your local machine.
+### Open a web browser and visit the following URL: `http://127.0.0.1:5000/`. This will take you to the home page where you can start using the web application on your machine.
