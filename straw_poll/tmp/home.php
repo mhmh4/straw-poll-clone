@@ -1,5 +1,7 @@
 <?php
 
+// session_start();
+
 require 'functions.php';
 
 $question = $_POST['question'] ?? null;
@@ -7,34 +9,25 @@ $options = $_POST['option'] ?? null;
 
 if (isset($question, $options)) {
 
-  // Filter out empty values and whitespace values from `options`.
-  $options = array_filter(
-    $options,
-    fn($value) => !is_null($value) && $value !== '' && !ctype_space($value)
-  );
+  $allow_multiple_answers = (isset($_POST['allow-multiple-answers']) ? true : false);
+  // if ($question == '' || ctype_space($question)) {
+  //   $_SESSION[""] = "";
+  //   header("Location: home.php");
+  // }
 
-  // $poll_id = create_poll($question, $options);
+  // Filter out empty values and whitespace values from `options`.
+  // $options = array_filter(
+  //   $options,
+  //   fn($value) => !is_null($value) && $value !== '' && !ctype_space($value)
+  // );
+
+  $poll_id = createPoll($question, $options, $allow_multiple_answers);
+  echo $poll_id;
 
   // header("Location: poll.php?id=$poll_id");
 
-  // $allow_multiple_answers = $_POST['allow-multiple-answers'] ?? false;
-  var_dump($options);
-
-  $options_json = json_encode($options);
-  $num_options = count($options);
-
-  $votes = array();
-  for ($i=0; $i < $num_options; $i++) {
-    $votes[] = 0;
-  }
-
-  $votes_json = json_encode($votes);
-
-  var_dump($options);
-  var_dump($votes_json);
-
-  // echo count($options);
-
+  // $options_json = json_encode($options);
+  // $num_options = count($options);
 }
 
 ?>
@@ -64,12 +57,12 @@ if (isset($question, $options)) {
         <input type="text" name="option[]" class="option d-block" placeholder="Enter poll option">
         <input type="text" name="option[]" class="option d-block" placeholder="Enter poll option">
       </div>
-      <!--  -->
+      <!-- Allow multiple answers -->
       <div>
         <input type="checkbox" name="allow-multiple-answers">
         <label for="">Allow multiple poll answers</label>
       </div>
-
+      <!-- Submit button -->
       <button type="submit" class="btn btn-primary">Create Poll</button>
     </form>
   </div>

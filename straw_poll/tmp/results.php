@@ -4,20 +4,6 @@ $poll_id = $_GET['id'] ?? null;
 
 ?>
 
-<?php
-
-$question = $_POST['question'] ?? null;
-$options = $_POST['option'] ?? null;
-
-if (isset($question, $options)) {
-
-  var_dump($options);
-
-  // header("Location: ");
-}
-
-?>
-
 <!doctype html>
 <html>
 <head>
