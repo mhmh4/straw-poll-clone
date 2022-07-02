@@ -2,54 +2,56 @@
 {% block content %}
   <h2 id="title">{{ poll.title }}</h2>
   {% if poll.allows_multiple_poll_answers %}
-    <p id="select-all-that-apply">Select all that apply</p>
+    <p class="text-muted" id="select-all-that-apply">Select all that apply</p>
   {% endif %}
   <form method="POST" action="">
     <div id="options">
       {% if poll.option1 %}
-      <div>
-        <input type="checkbox" name="option1">
-        <label for="option1">{{ poll.option1 }}</label>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="option1">
+        <label class="form-check-label" for="option1">{{ poll.option1 }}</label>
       </div>
       {% endif %}
       <!--  -->
       {% if poll.option2 %}
-      <div>
-        <input type="checkbox" name="option2">
-        <label for="option2">{{ poll.option2 }}</label>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="option2">
+        <label class="form-check-label" for="option2">{{ poll.option2 }}</label>
       </div>
       {% endif %}
       <!--  -->
       {% if poll.option3 %}
-      <div>
-        <input type="checkbox" name="option3">
-        <label for="option3">{{ poll.option3 }}</label>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="option3">
+        <label class="form-check-label" for="option3">{{ poll.option3 }}</label>
       </div>
       {% endif %}
       <!--  -->
       {% if poll.option4 %}
-      <div>
-        <input type="checkbox" name="option4">
-        <label for="option4">{{ poll.option4 }}</label>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="option4">
+        <label class="form-check-label" for="option4">{{ poll.option4 }}</label>
       </div>
       {% endif %}
       <!--  -->
       {% if poll.option5 %}
-      <div>
-        <input type="checkbox" name="option5">
-        <label for="option5">{{ poll.option5 }}</label>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="option5">
+        <label class="form-check-label" for="option5">{{ poll.option5 }}</label>
       </div>
       {% endif %}
       <!--  -->
     </div>
-    <div>{{ form.vote() }}</div>
+    <div class="d-flex">
+      <div class="flex-fill">
+        {{ form.vote(class="btn btn-primary") }}
+      </div>
+      <div class="">
+        <button type="button" class="btn btn-secondary" onclick="window.location = `{{ url_for('results', poll_id=poll.id) }}`">Results</button>
+        <button type="button" class="btn btn-secondary" id="share-btn">Share</button>
+      </div>
+    </div>
   </form>
-  <div class="right" style="margin-top: -22px;">
-    <button>
-      <a class="btn" href="{{ url_for('results', poll_id=poll.id) }}">Results</a>
-    </button>
-    <button id="share-btn">Share</button>
-  </div>
   <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
   <script>
     const hasSelectAllThatApply = document.getElementById('select-all-that-apply');
