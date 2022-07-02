@@ -9,11 +9,11 @@ As I've never made my own actual web application before, this is my first (I'd s
 ## Example
 
 <div align="center">
-  <img width="40%" src="assets/home.png">
+  <img width="80%" src="assets/home.png">
   <p>The home page</p>
-  <img width="40%" src="assets/vote.png">
+  <img width="80%" src="assets/vote.png">
   <p>The vote page</p>
-  <img width="40%" src="assets/results.png">
+  <img width="80%" src="assets/results.png">
   <p>The results page</p>
 </div>
 
